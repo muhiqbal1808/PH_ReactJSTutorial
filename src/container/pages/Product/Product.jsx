@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
 import "./Product.css";
 
@@ -24,7 +24,7 @@ class Product extends Component {
                 src="https://img.icons8.com/ios/50/shopping-cart--v1.png"
                 alt="shopping-cart--v1"
               />
-              <div className="count">{this.props.order}</div>
+              <div className="count">{0}</div>
             </div>
           </div>
           <CardProduct />
@@ -34,10 +34,11 @@ class Product extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    order: state.totalOrder,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     order: state.totalOrder,
+//   };
+// };
 
-export default connect(mapStateToProps)(Product);
+// export default connect(mapStateToProps)(Product);
+export default Product;
