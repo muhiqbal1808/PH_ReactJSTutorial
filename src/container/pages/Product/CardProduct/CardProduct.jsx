@@ -15,9 +15,7 @@ class CardProduct extends Component {
           PINZY Headset Bluetooth Sport Magnetic design Original Pz03
         </p>
         <p className="product-price">Rp. 13.500</p>
-        <Counter
-          onCounterChange={(value) => this.props.onCounterChange(value)}
-        />
+        <Counter />
       </div>
     );
   }
