@@ -1,15 +1,34 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+
 import "./index.css";
 
 import Home from "./container/Home/Home";
 
 import reportWebVitals from "./reportWebVitals";
 
+const initialState = {
+  totalOrder: 5,
+};
+
+// Reducer
+const rootReducer = (state = initialState, action) => {
+  return state;
+};
+
+// Store
+const storeRedux = createStore(rootReducer);
+
+// Dispatching Actions
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Home />
+    <Provider store={storeRedux}>
+      <Home />
+    </Provider>
   </React.StrictMode>
 );
 
