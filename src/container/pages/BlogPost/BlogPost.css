@@ -50,6 +50,24 @@
   color: #4a4a4a;
 }
 
+.btn-container {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-detail {
+  padding: 12px 18px;
+  background-color: blue;
+  color: white;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  outline: none;
+  margin-top: 18px;
+}
+
 .btn-update {
   padding: 12px 18px;
   background-color: #8bc34a;
@@ -78,7 +96,6 @@
   -o-border-radius: 4px;
   outline: none;
   margin-top: 18px;
-  margin-left: 12px;
 }
 
 .btn-delete:hover {

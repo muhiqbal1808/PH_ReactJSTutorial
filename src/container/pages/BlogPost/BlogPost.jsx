@@ -168,8 +168,8 @@ class BlogPost extends Component {
               <Post
                 data={post}
                 key={post.id}
-                onDelete={this.handleRemove}
                 onUpdate={this.handleUpdate}
+                onDelete={this.handleRemove}
               />
             );
           })}
