@@ -7,33 +7,9 @@ import "./index.css";
 
 import Home from "./container/Home/Home";
 
+import rootReducer from "./redux/reducer/globalReducer";
+
 import reportWebVitals from "./reportWebVitals";
-
-const initialState = {
-  totalOrder: 0,
-};
-
-// Reducer
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "PLUS_ORDER":
-      return {
-        ...state,
-        totalOrder: state.totalOrder + 1,
-      };
-    case "MINUS_ORDER":
-      let totalOrder = 0;
-      if (state.totalOrder > 0) {
-        totalOrder = state.totalOrder - 1;
-      }
-      return {
-        ...state,
-        totalOrder: totalOrder,
-      };
-    default:
-      return state;
-  }
-};
 
 // Store
 const storeRedux = createStore(rootReducer);
