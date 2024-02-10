@@ -121,53 +121,60 @@ class BlogPost extends Component {
 
   render() {
     return (
-      <Fragment>
-        <p className="section-title">Blog Post</p>
-        <div className="form-add-post">
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            name="title"
-            placeholder="Add Title"
-            value={this.state.formBlogPost.title}
-            onChange={this.handleFormchange}
-          />
-          <label htmlFor="body">Blog Content</label>
-          <textarea
-            name="body"
-            id="body"
-            placeholder="Add Blog Content"
-            cols="30"
-            rows="10"
-            value={this.state.formBlogPost.body}
-            onChange={this.handleFormchange}
-          ></textarea>
-          {this.state.isUpdate ? (
-            <>
-              <button className="btn-submit" onClick={this.handleSubmit}>
-                Update
-              </button>
-              <button className="btn-submit" onClick={this.handleCancelUpdate}>
-                Batal
-              </button>
-            </>
-          ) : (
-            <button className="btn-submit" onClick={this.handleSubmit}>
-              Simpan
-            </button>
-          )}
-        </div>
-        {this.state.post.map((post) => {
-          return (
-            <Post
-              data={post}
-              key={post.id}
-              onDelete={this.handleRemove}
-              onUpdate={this.handleUpdate}
+      <>
+        <p>Halaman Blog Post</p>
+        <hr />
+        <div>
+          <p className="section-title">Blog Post</p>
+          <div className="form-add-post">
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              name="title"
+              placeholder="Add Title"
+              value={this.state.formBlogPost.title}
+              onChange={this.handleFormchange}
             />
-          );
-        })}
-      </Fragment>
+            <label htmlFor="body">Blog Content</label>
+            <textarea
+              name="body"
+              id="body"
+              placeholder="Add Blog Content"
+              cols="30"
+              rows="10"
+              value={this.state.formBlogPost.body}
+              onChange={this.handleFormchange}
+            ></textarea>
+            {this.state.isUpdate ? (
+              <>
+                <button className="btn-submit" onClick={this.handleSubmit}>
+                  Update
+                </button>
+                <button
+                  className="btn-submit"
+                  onClick={this.handleCancelUpdate}
+                >
+                  Batal
+                </button>
+              </>
+            ) : (
+              <button className="btn-submit" onClick={this.handleSubmit}>
+                Simpan
+              </button>
+            )}
+          </div>
+          {this.state.post.map((post) => {
+            return (
+              <Post
+                data={post}
+                key={post.id}
+                onDelete={this.handleRemove}
+                onUpdate={this.handleUpdate}
+              />
+            );
+          })}
+        </div>
+      </>
     );
   }
 }

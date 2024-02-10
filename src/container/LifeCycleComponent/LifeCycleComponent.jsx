@@ -59,6 +59,8 @@ class LifeCycleComponent extends Component {
     console.log("render");
     return (
       <div>
+        <p>Halaman Lifecycle Component</p>
+        <hr />
         <button className="btn" onClick={this.changeCount}>
           Component Button {this.state.count}
         </button>
