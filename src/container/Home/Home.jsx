@@ -8,6 +8,7 @@ import BlogPost from "../pages/BlogPost/BlogPost";
 import Product from "../pages/Product/Product";
 import YoutubeComponentPage from "../pages/YoutubeComponentPage/YoutubeComponentPage";
 import DetailPost from "../pages/BlogPost/DetailPost/DetailPost";
+import Hooks from "../pages/Hooks/Hooks";
 
 import GlobalProvider from "../../context/context";
 
@@ -20,6 +21,7 @@ class Home extends Component {
           <Link to="/product">Product</Link>
           <Link to="/lifecycle">Lifecycle</Link>
           <Link to="/youtube">Youtube</Link>
+          <Link to="/hooks">Hooks</Link>
         </div>
         <Routes>
           <Route path="/" Component={BlogPost} />
@@ -27,6 +29,7 @@ class Home extends Component {
           <Route path="/product" Component={Product} />
           <Route path="/lifecycle" Component={LifeCycleComponent} />
           <Route path="/youtube" Component={YoutubeComponentPage} />
+          <Route path="/hooks" Component={Hooks} />
         </Routes>
       </BrowserRouter>
     );
