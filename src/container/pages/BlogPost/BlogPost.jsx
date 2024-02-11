@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from "react";
-import axios from "axios";
+import React, { Component } from "react";
 
 import "./BlogPost.css";
 import Post from "../../../components/Post/Post";
@@ -40,7 +39,7 @@ class BlogPost extends Component {
   };
 
   handleRemove = (data) => {
-    axios.delete(`http://localhost:4000/posts/${data}`).then((res) => {
+    API.deleteNewsBlog(data).then((res) => {
       this.getPostAPI();
     });
   };
@@ -97,12 +96,8 @@ class BlogPost extends Component {
       createdAt: this.state.formBlogPost.createdAt,
       updatedAt: new Date(),
     };
-    axios
-      .put(
-        `http://localhost:4000/posts/${this.state.formBlogPost.id}`,
-        fromBlogPostUpdate
-      )
-      .then(() => {
+    API.updateNewsBlog(fromBlogPostUpdate, this.state.formBlogPost.id).then(
+      (res) => {
         this.setState({
           isUpdate: false,
           formBlogPost: {
@@ -115,7 +110,8 @@ class BlogPost extends Component {
         });
 
         this.getPostAPI();
-      });
+      }
+    );
   };
 
   componentDidMount() {
