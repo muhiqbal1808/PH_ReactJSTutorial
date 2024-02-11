@@ -17,10 +17,28 @@ class Home extends Component {
     totalOrder: 5,
   };
 
+  dispatch = (action) => {
+    if (action.type === "PLUS_ORDER") {
+      return this.setState({
+        totalOrder: this.state.totalOrder + 1,
+      });
+    }
+    if (action.type === "MINUS_ORDER") {
+      return this.setState({
+        totalOrder: this.state.totalOrder - 1,
+      });
+    }
+  };
+
   render() {
     return (
       <BrowserRouter>
-        <Provider value={this.state}>
+        <Provider
+          value={{
+            state: this.state,
+            dispatch: this.dispatch,
+          }}
+        >
           <div className="navigation">
             <Link to="/">Blog Post</Link>
             <Link to="/product">Product</Link>

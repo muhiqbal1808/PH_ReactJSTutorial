@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import { connect } from "react-redux";
+import { RootContext } from "../../Home/Home";
 import "./LifeCycleComponent.css";
 
 class LifeCycleComponent extends Component {
@@ -59,15 +60,23 @@ class LifeCycleComponent extends Component {
   render() {
     console.log("render");
     return (
-      <div>
-        <p>Halaman Lifecycle Component</p>
-        <hr />
-        <button className="btn" onClick={this.changeCount}>
-          Component Button {this.state.count}
-        </button>
-        <hr />
-        <p>Total Order : {0}</p>
-      </div>
+      <RootContext.Consumer>
+        {(value) => {
+          return (
+            <>
+              <div>
+                <p>Halaman Lifecycle Component</p>
+                <hr />
+                <button className="btn" onClick={this.changeCount}>
+                  Component Button {this.state.count}
+                </button>
+                <hr />
+                <p>Total Order : {value.state.totalOrder}</p>
+              </div>
+            </>
+          );
+        }}
+      </RootContext.Consumer>
     );
   }
 }
