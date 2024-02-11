@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 // import { connect } from "react-redux";
 // import ActionType from "../../../../redux/reducer/globalActionType";
-import { RootContext } from "../../../Home/Home";
+// import { RootContext } from "../../../Home/Home";
+import { GlobalComsumer } from "../../../../context/context";
 
 class Counter extends Component {
   //   handleCounterChange = (newValue) => {
@@ -34,36 +35,29 @@ class Counter extends Component {
 
   render() {
     return (
-      <RootContext.Consumer>
-        {(value) => {
-          console.log(value);
-          return (
-            <div className="counter">
-              <button
-                className="minus"
-                onClick={() =>
-                  value.dispatch({
-                    type: "MINUS_ORDER",
-                  })
-                }
-              >
-                -
-              </button>
-              <input type="text" value={value.state.totalOrder} />
-              <button
-                className="plus"
-                onClick={() =>
-                  value.dispatch({
-                    type: "PLUS_ORDER",
-                  })
-                }
-              >
-                +
-              </button>
-            </div>
-          );
-        }}
-      </RootContext.Consumer>
+      <div className="counter">
+        <button
+          className="minus"
+          onClick={() =>
+            this.props.dispatch({
+              type: "MINUS_ORDER",
+            })
+          }
+        >
+          -
+        </button>
+        <input type="text" value={this.props.state.totalOrder} />
+        <button
+          className="plus"
+          onClick={() =>
+            this.props.dispatch({
+              type: "PLUS_ORDER",
+            })
+          }
+        >
+          +
+        </button>
+      </div>
     );
   }
 }
@@ -82,4 +76,4 @@ class Counter extends Component {
 // };
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Counter);
-export default Counter;
+export default GlobalComsumer(Counter);
